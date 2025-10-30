@@ -1,0 +1,22 @@
+[
+  {
+    "test_name": "Shapes test 1",
+    "module": "shapes",
+    "function": "shape_area",
+    "args": [],
+    "input_text": ["2\n5\n6"],
+    "kwargs": {},
+    "expected_return": 30,
+    "expected_output": "Choose shape (1=circle, 2=rectangle, 3=triangle): "
+  },
+  {
+    "test_name": "Shapes test 2",
+    "module": "shapes",
+    "function": "shape_area",
+    "args": [],
+    "input_text": ["3\n6"],
+    "kwargs": {},
+    "expected_return": 15.588457268119894,
+    "expected_output": "Choose shape (1=circle, 2=rectangle, 3=triangle): "
+  }
+]
