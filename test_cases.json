@@ -18,5 +18,277 @@
     "kwargs": {},
     "expected_return": 15.588457268119894,
     "expected_output": "Choose shape (1=circle, 2=rectangle, 3=triangle): "
+  },
+  {
+    "test_name": "Vormir safety test 1 - All three exceed (safe)",
+    "module": "temperature",
+    "function": "is_vormir_safe",
+    "args": [100, 105, 110, 115],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": true,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Vormir safety test 2 - Two exceed, one doesn't (safe)",
+    "module": "temperature",
+    "function": "is_vormir_safe",
+    "args": [100, 105, 95, 110],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": true,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Vormir safety test 3 - One exceeds, two don't (unsafe)",
+    "module": "temperature",
+    "function": "is_vormir_safe",
+    "args": [100, 90, 105, 85],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": false,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Vormir safety test 4 - None exceed (unsafe)",
+    "module": "temperature",
+    "function": "is_vormir_safe",
+    "args": [100, 95, 90, 85],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": false,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Vormir safety test 5 - Two at max, one exceeds (unsafe)",
+    "module": "temperature",
+    "function": "is_vormir_safe",
+    "args": [100, 100, 100, 101],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": false,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Vormir safety test 6 - Two exceed, one at max (safe)",
+    "module": "temperature",
+    "function": "is_vormir_safe",
+    "args": [100, 101, 100, 105],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": true,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Vormir safety test 7 - Mixed temps, one below, one at, one exceeds (unsafe)",
+    "module": "temperature",
+    "function": "is_vormir_safe",
+    "args": [100, 80, 100, 110],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": false,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Vormir safety test 8 - All exactly at max (unsafe)",
+    "module": "temperature",
+    "function": "is_vormir_safe",
+    "args": [100, 100, 100, 100],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": false,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Calculate test 1 - Addition",
+    "module": "calculate_mathematical_expression",
+    "function": "calculate_from_string",
+    "args": ["5 + 3"],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": 8,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Calculate test 2 - Subtraction",
+    "module": "calculate_mathematical_expression",
+    "function": "calculate_from_string",
+    "args": ["10 - 4"],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": 6,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Calculate test 3 - Multiplication",
+    "module": "calculate_mathematical_expression",
+    "function": "calculate_from_string",
+    "args": ["7 * 6"],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": 42,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Calculate test 4 - Division",
+    "module": "calculate_mathematical_expression",
+    "function": "calculate_from_string",
+    "args": ["20 : 4"],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": 5,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Calculate test 5 - Division with decimal result",
+    "module": "calculate_mathematical_expression",
+    "function": "calculate_from_string",
+    "args": ["7 : 2"],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": 3.5,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Calculate test 6 - Addition with negative result",
+    "module": "calculate_mathematical_expression",
+    "function": "calculate_from_string",
+    "args": ["3 + -5"],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": -2,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Calculate test 7 - Subtraction with negative numbers",
+    "module": "calculate_mathematical_expression",
+    "function": "calculate_from_string",
+    "args": ["10 - 15"],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": -5,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Calculate test 8 - Multiplication with zero",
+    "module": "calculate_mathematical_expression",
+    "function": "calculate_from_string",
+    "args": ["0 * 99"],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": 0,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Calculate test 9 - Addition with decimals",
+    "module": "calculate_mathematical_expression",
+    "function": "calculate_from_string",
+    "args": ["2.5 + 3.7"],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": 6.2,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Calculate test 10 - Multiplication with decimals",
+    "module": "calculate_mathematical_expression",
+    "function": "calculate_from_string",
+    "args": ["2.5 * 4"],
+    "input_text": [],
+    "kwargs": {},
+    "expected_return": 10.0,
+    "expected_output": ""
+  },
+  {
+    "test_name": "Quadratic equation test 1 - Two solutions",
+    "module": "quadratic_equation",
+    "function": "quadratic_equation_user_input",
+    "args": [],
+    "input_text": ["1 -5 6"],
+    "kwargs": {},
+    "expected_return": null,
+    "expected_output": [
+      "Insert coefficients a, b, and c: The equation has 2 solutions: 3.0 and 2.0",
+      "Insert coefficients a, b, and c: The equation has 2 solutions: 2.0 and 3.0"
+    ]
+  },
+  {
+    "test_name": "Quadratic equation test 2 - One solution",
+    "module": "quadratic_equation",
+    "function": "quadratic_equation_user_input",
+    "args": [],
+    "input_text": ["1 -4 4"],
+    "kwargs": {},
+    "expected_return": null,
+    "expected_output": "Insert coefficients a, b, and c: The equation has 1 solution: 2.0"
+  },
+  {
+    "test_name": "Quadratic equation test 3 - No solutions",
+    "module": "quadratic_equation",
+    "function": "quadratic_equation_user_input",
+    "args": [],
+    "input_text": ["1 2 5"],
+    "kwargs": {},
+    "expected_return": null,
+    "expected_output": "Insert coefficients a, b, and c: The equation has no solutions"
+  },
+  {
+    "test_name": "Quadratic equation test 4 - a equals zero",
+    "module": "quadratic_equation",
+    "function": "quadratic_equation_user_input",
+    "args": [],
+    "input_text": ["0 3 5"],
+    "kwargs": {},
+    "expected_return": null,
+    "expected_output": "Insert coefficients a, b, and c: The parameter 'a' may not equal 0"
+  },
+  {
+    "test_name": "Quadratic equation test 5 - Two negative solutions",
+    "module": "quadratic_equation",
+    "function": "quadratic_equation_user_input",
+    "args": [],
+    "input_text": ["1 5 6"],
+    "kwargs": {},
+    "expected_return": null,
+    "expected_output": [
+      "Insert coefficients a, b, and c: The equation has 2 solutions: -2.0 and -3.0",
+      "Insert coefficients a, b, and c: The equation has 2 solutions: -3.0 and -2.0"
+    ]
+  },
+  {
+    "test_name": "Quadratic equation test 6 - One solution at zero",
+    "module": "quadratic_equation",
+    "function": "quadratic_equation_user_input",
+    "args": [],
+    "input_text": ["1 0 0"],
+    "kwargs": {},
+    "expected_return": null,
+    "expected_output": "Insert coefficients a, b, and c: The equation has 1 solution: 0.0"
+  },
+  {
+    "test_name": "Quadratic equation test 7 - Two solutions with decimals",
+    "module": "quadratic_equation",
+    "function": "quadratic_equation_user_input",
+    "args": [],
+    "input_text": ["2 -3 1"],
+    "kwargs": {},
+    "expected_return": null,
+    "expected_output": [
+      "Insert coefficients a, b, and c: The equation has 2 solutions: 1.0 and 0.5",
+      "Insert coefficients a, b, and c: The equation has 2 solutions: 0.5 and 1.0"
+    ]
+  },
+  {
+    "test_name": "Quadratic equation test 8 - Negative a coefficient",
+    "module": "quadratic_equation",
+    "function": "quadratic_equation_user_input",
+    "args": [],
+    "input_text": ["-1 4 -3"],
+    "kwargs": {},
+    "expected_return": null,
+    "expected_output": [
+      "Insert coefficients a, b, and c: The equation has 2 solutions: 3.0 and 1.0",
+      "Insert coefficients a, b, and c: The equation has 2 solutions: 1.0 and 3.0"
+    ]
   }
 ]

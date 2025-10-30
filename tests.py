@@ -146,7 +146,12 @@ class TestRunner:
             return_match = self.compare_values(actual_return, expected_return)
 
             # Compare printed output (strip whitespace for comparison)
-            output_match = actual_output.strip() == expected_output.strip()
+            output_match = False
+            if type(expected_output) is list:
+                for e_o in expected_output:
+                    output_match = (actual_output.strip() == e_o.strip()) or output_match
+            else:
+                output_match = actual_output.strip() == expected_output.strip()
 
             # Test passes if both match
             result['passed'] = return_match and output_match
