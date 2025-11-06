@@ -1,35 +1,76 @@
 import json
 import importlib
 import sys
+import os
+import tempfile
+import zipfile
 from datetime import datetime
 from typing import Any, Dict, List
 import traceback
+import shutil
+
+from pyparsing import results
+
 
 class TestRunner:
-    def __init__(self, test_file: str = "test_cases.json", output_file: str = "test_failures.txt"):
+    def __init__(self, test_file: str = "test_cases.json", output_file: str = "test_failures.txt",
+                 modules_zip: str = None):
         """
         Initialize the test runner.
 
         Args:
             test_file: JSON file containing test cases
             output_file: File to write test failures
+            modules_zip: Optional ZIP file containing Python modules
         """
         self.test_file = test_file
         self.output_file = output_file
+        self.modules_zip = modules_zip
         self.failures = []
         self.passed = 0
         self.failed = 0
+        self.temp_dir = None
+
+        # If a ZIP file is provided, extract it and add to sys.path
+        if self.modules_zip:
+            self._prepare_modules_from_zip()
+
+    def __del__(self):
+        if self.temp_dir and os.path.exists(self.temp_dir):
+            shutil.rmtree(self.temp_dir)
+
+    def _prepare_modules_from_zip(self):
+        """Extract ZIP file containing modules and add it to sys.path."""
+        if not os.path.exists(self.modules_zip):
+            print(f"Error: ZIP file '{self.modules_zip}' not found.")
+            sys.exit(1)
+
+        self.temp_dir = tempfile.mkdtemp(prefix="modules_")
+        with zipfile.ZipFile(self.modules_zip, 'r') as zip_ref:
+            zip_ref.extractall(self.temp_dir)
+
+        # Add extracted directory to sys.path for importlib to find modules
+        sys.path.insert(0, self.temp_dir)
+        print(f"✅ Extracted modules to: {self.temp_dir}")
 
     def load_test_cases(self) -> List[Dict]:
-        """Load test cases from JSON file."""
+        """Load test cases from bundled JSON or from current directory."""
+        # Handle PyInstaller onefile mode
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS  # temp folder PyInstaller uses
+        else:
+            base_path = os.path.dirname(__file__)
+
+        test_path = os.path.join(base_path, self.test_file)
+
         try:
-            with open(self.test_file, 'r') as f:
+            with open(test_path, 'r') as f:
                 return json.load(f)
         except FileNotFoundError:
-            print(f"Error: Test file '{self.test_file}' not found.")
+            print(f"Error: Test file '{test_path}' not found.")
             sys.exit(1)
         except json.JSONDecodeError:
-            print(f"Error: Invalid JSON in '{self.test_file}'.")
+            print(f"Error: Invalid JSON in '{test_path}'.")
             sys.exit(1)
 
     def import_function(self, module_name: str, function_name: str):
@@ -43,31 +84,16 @@ class TestRunner:
             raise ImportError(f"Function '{function_name}' not found in module '{module_name}'.")
 
     def capture_output(self, func, args, kwargs, input_text=None):
-        """
-        Execute function and capture both return value and printed output.
-        Optionally simulate user input.
-
-        Args:
-            func: Function to execute
-            args: Positional arguments
-            kwargs: Keyword arguments
-            input_text: String or list of strings to simulate user input
-
-        Returns:
-            tuple: (return_value, printed_output)
-        """
+        """Execute function and capture both return value and printed output."""
         from io import StringIO
         import sys
 
-        # Capture stdout
         old_stdout = sys.stdout
         sys.stdout = captured_output = StringIO()
-
-        # Simulate stdin if input_text is provided
         old_stdin = None
+
         if input_text is not None:
             old_stdin = sys.stdin
-            # Convert list to newline-separated string
             if isinstance(input_text, list):
                 input_text = '\n'.join(str(x) for x in input_text)
             sys.stdin = StringIO(input_text)
@@ -84,40 +110,24 @@ class TestRunner:
 
     def compare_values(self, actual: Any, expected: Any) -> bool:
         """Compare two values with type flexibility."""
-        # Handle None cases
         if actual is None and expected is None:
             return True
         if actual is None or expected is None:
             return False
-
-        # Handle lists/tuples
         if isinstance(actual, (list, tuple)) and isinstance(expected, (list, tuple)):
             if len(actual) != len(expected):
                 return False
             return all(self.compare_values(a, e) for a, e in zip(actual, expected))
-
-        # Direct comparison
         return actual == expected
 
     def run_single_test(self, test_case: Dict) -> Dict:
-        """
-        Run a single test case.
-
-        Returns:
-            Dict with test results
-        """
+        """Run a single test case."""
         test_name = test_case.get('test_name', 'Unnamed Test')
-        module_name = test_case.get('module')  # e.g., "f1"
-        function_name = test_case.get('function')  # e.g., "my_function"
-
-        # Input arguments
+        module_name = test_case.get('module')
+        function_name = test_case.get('function')
         args = test_case.get('args', [])
         kwargs = test_case.get('kwargs', {})
-
-        # Simulated user input
         input_text = test_case.get('input_text', None)
-
-        # Expected values
         expected_return = test_case.get('expected_return', None)
         expected_output = test_case.get('expected_output', "")
 
@@ -129,33 +139,25 @@ class TestRunner:
             'actual_output': None,
             'expected_return': expected_return,
             'expected_output': expected_output,
-            'input_text': input_text
+            'input_text': input_text,
+            'args': args
         }
 
         try:
-            # Import the function
             func = self.import_function(module_name, function_name)
-
-            # Run function and capture output (with simulated input if provided)
             actual_return, actual_output = self.capture_output(func, args, kwargs, input_text)
-
             result['actual_return'] = actual_return
             result['actual_output'] = actual_output
 
-            # Compare return values
             return_match = self.compare_values(actual_return, expected_return)
-
-            # Compare printed output (strip whitespace for comparison)
             output_match = False
-            if type(expected_output) is list:
+            if isinstance(expected_output, list):
                 for e_o in expected_output:
                     output_match = (actual_output.strip() == e_o.strip()) or output_match
             else:
                 output_match = actual_output.strip() == expected_output.strip()
 
-            # Test passes if both match
             result['passed'] = return_match and output_match
-
             if not return_match:
                 result['error'] = 'Return value mismatch'
             elif not output_match:
@@ -169,42 +171,33 @@ class TestRunner:
 
     def format_failure_report(self, result: Dict) -> str:
         """Format a failure report for a single test."""
-        lines = []
-        lines.append("=" * 80)
-        lines.append(f"FAILED: {result['test_name']}")
-        lines.append("=" * 80)
-        lines.append(f"Error Type: {result['error']}")
-        lines.append("")
-
+        lines = ["=" * 80, f"FAILED: {result['test_name']}", "" ,f"Error Type: {result['error']}"]
         if result.get('input_text'):
             lines.append(f"Simulated Input: {repr(result['input_text'])}")
             lines.append("")
-
+        if result.get('args'):
+            lines.append(f"Simulated Arguments: {repr(result['args'])}")
+            lines.append("")
         if 'traceback' in result:
             lines.append("Traceback:")
             lines.append(result['traceback'])
             lines.append("")
-
         if result['error'] == 'Return value mismatch':
             lines.append(f"Expected Return: {repr(result['expected_return'])}")
             lines.append(f"Actual Return:   {repr(result['actual_return'])}")
-
         if result['error'] == 'Output mismatch':
             lines.append(f"Expected Output:\n{result['expected_output']}")
             lines.append(f"\nActual Output:\n{result['actual_output']}")
-
         lines.append("")
         return "\n".join(lines)
 
     def run_all_tests(self):
         """Run all tests and generate report."""
         test_cases = self.load_test_cases()
-
         print(f"Running {len(test_cases)} tests...\n")
 
         for test_case in test_cases:
             result = self.run_single_test(test_case)
-
             if result['passed']:
                 self.passed += 1
                 print(f"✓ PASS: {result['test_name']}")
@@ -213,10 +206,7 @@ class TestRunner:
                 print(f"✗ FAIL: {result['test_name']}")
                 self.failures.append(result)
 
-        # Write failures to file
         self.write_failure_report()
-
-        # Print summary
         print("\n" + "=" * 80)
         print(f"TEST SUMMARY")
         print("=" * 80)
@@ -230,9 +220,7 @@ class TestRunner:
         with open(self.output_file, 'w') as f:
             f.write(f"TEST FAILURE REPORT\n")
             f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-            f.write(f"Total Failures: {self.failed}\n")
-            f.write("\n")
-
+            f.write(f"Total Failures: {self.failed}\n\n")
             if self.failures:
                 for failure in self.failures:
                     f.write(self.format_failure_report(failure))
@@ -242,11 +230,9 @@ class TestRunner:
 
 # Example usage
 if __name__ == "__main__":
-    print("\nTo use this framework:")
-    print("1. Edit test_cases.json with your actual test cases")
-    print("2. Run: python test_framework.py")
     print("\nStarting test run...\n")
 
     # Run the tests
-    runner = TestRunner(test_file="test_cases.json", output_file="test_failures.txt")
+    runner = TestRunner(test_file="test_cases.json", output_file="test_failures.txt", modules_zip="ex3.zip")
     runner.run_all_tests()
+    input("Press Enter to finish...")
