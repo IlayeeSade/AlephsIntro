@@ -103,21 +103,6 @@
     "expected_output": "...\n...\n\n.x.\n...\n\n.xx | ...\n..x | ...\n\n.*x | *..\n..x | ...\n\n.** | *..\n..x | .*.\n\n.** | *..\n..* | **."
   },
   {
-    "test_name": "game invalid torpedos and player hit the same spot",
-    "module": "battleship.py",
-    "function": "main",
-    "rows": 10,
-    "columns": 10,
-    "ship_sizes": [4, 3, 3, 2, 2, 2, 1, 1, 1, 1],
-    "input_text": [
-
-    ],
-    "computer_ship_placements": ["A1", "D1", "D5", "A8", "E9", "I7", "j10", "g9", "c9", "b6"],
-    "computer_torpedo_sequence": ['f5', 'e5', 'j1', 'd4', 'd6', 'i8', 'i5', 'a10', 'a7'
-    ,'a4', 'a2', 'b1', 'b3', 'b4', 'j9','j8', 'j6', 'j4','j2', 'g8', 'g7','g6', 'g5', 'h2', 'h1', 'a9', 'd9', 'd8', 'd7', 'b6', 'b5', 'd1', 'd2'],
-    "expected_output": ""
-  },
-  {
     "test_name": "biggest game idk just shot everything computer wins",
     "module": "battleship.py",
     "function": "main",
