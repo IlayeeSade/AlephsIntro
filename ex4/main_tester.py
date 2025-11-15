@@ -10,6 +10,11 @@ import traceback
 import shutil
 
 
+def resource_path(filename):
+    if hasattr(sys, "_MEIPASS"):
+        return os.path.join(sys._MEIPASS, filename)
+    return filename
+
 class TestRunner:
     def __init__(self, test_file="main_cases.json", output_file="game_simulation_results.txt", modules_zip="ex4.zip"):
         self.test_file = test_file
@@ -42,12 +47,18 @@ class TestRunner:
         sys.path.insert(0, self.temp_dir)
         print(f"✓ Extracted ex4.zip to {self.temp_dir}")
 
-    def load_test_cases(self):
+    def load_test_cases(self) -> List[Dict]:
+        """Load test cases from inside the EXE or source directory."""
+        test_path = resource_path(self.test_file)
+
         try:
-            with open(self.test_file, "r", encoding="utf-8") as f:
+            with open(test_path, 'r', encoding='utf-8') as f:
                 return json.load(f)
-        except Exception as e:
-            print("Fatal: cannot load test JSON:", e)
+        except FileNotFoundError:
+            print(f"Error: Test file '{test_path}' not found.")
+            sys.exit(1)
+        except json.JSONDecodeError:
+            print(f"Error: Invalid JSON in '{test_path}'.")
             sys.exit(1)
 
     def cell_name_to_loc(self, name):
@@ -82,10 +93,24 @@ class TestRunner:
         if hasattr(th, "reset"):
             th.reset()
 
+    def import_test_helper(self):
+        """
+        Load test_helper.py from inside the EXE and return the imported module.
+        """
+        helper_path = resource_path("test_helper.py")
+
+        import importlib.util
+
+        spec = importlib.util.spec_from_file_location("helper", helper_path)
+        helper = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(helper)
+
+        return helper
+
     # Import Battleship with helper swapped out
     def import_battleship(self, spec):
 
-        test_helper = importlib.import_module("test_helper")
+        test_helper = self.import_test_helper()
 
         sys.modules["helper"] = test_helper
         self.prepare_test_helper(test_helper, spec)
