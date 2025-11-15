@@ -1,844 +1,508 @@
 [
   {
-    "test_name": "inner_product_basic_equal_vectors",
-    "module": "ex3",
-    "function": "inner_product",
-    "args": [[1, 2, 3], [5, 10, 7]],
-    "input_text": [],
+    "test_name": "same starting place battleship (i)",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[
+ [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+],
+4, [0,0]],
+    "input_text": null,
     "kwargs": {},
-    "expected_return": 46,
+    "expected_return": false,
     "expected_output": ""
   },
   {
-    "test_name": "inner_product_mixed_values",
-    "module": "ex3",
-    "function": "inner_product",
-    "args": [[1, 2, 3], [10.5, -2, 0]],
-    "input_text": [],
+    "test_name": "ship in the place of the continuation of the battleship (i)",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+],
+4, [0,0]],
+    "input_text": null,
     "kwargs": {},
-    "expected_return": 6.5,
+    "expected_return": false,
     "expected_output": ""
   },
   {
-    "test_name": "inner_product_empty_second_list",
-    "module": "ex3",
-    "function": "inner_product",
-    "args": [[1, 2, 3], []],
-    "input_text": [],
+    "test_name": "out of bounds x starting (i)",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+],
+4, [15, 5]],
+    "input_text": null,
     "kwargs": {},
-    "expected_return": null,
+    "expected_return": false,
     "expected_output": ""
   },
   {
-    "test_name": "inner_product_single_zero",
-    "module": "ex3",
-    "function": "inner_product",
-    "args": [[0], [0]],
-    "input_text": [],
+    "test_name": "out of bounds y starting (i)",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+],
+4, [5, 12]],
+    "input_text": null,
     "kwargs": {},
-    "expected_return": 0,
+    "expected_return": false,
     "expected_output": ""
   },
   {
-    "test_name": "inner_product_negative",
-    "module": "ex3",
-    "function": "inner_product",
-    "args": [[-10], [-5]],
-    "input_text": [],
+    "test_name": "out of bounds x 2 starting (i)",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+],
+4, [-1, 5]],
+    "input_text": null,
     "kwargs": {},
-    "expected_return": 50,
+    "expected_return": false,
     "expected_output": ""
   },
   {
-    "test_name": "inner_empty_lists",
-    "module": "ex3",
-    "function": "inner_product",
-    "args": [[], []],
-    "input_text": [],
+    "test_name": "out of bounds y 2 starting (i)",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+],
+4, [5, -1]],
+    "input_text": null,
     "kwargs": {},
-    "expected_return": 0,
+    "expected_return": false,
     "expected_output": ""
   },
   {
-    "test_name": "inner_product_first_empty",
-    "module": "ex3",
-    "function": "inner_product",
-    "args": [[], [1]],
-    "input_text": [],
+    "test_name": "out of bounds continuation x (i)",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+],
+4, [13, 5]],
+    "input_text": null,
     "kwargs": {},
-    "expected_return": null,
+    "expected_return": false,
     "expected_output": ""
   },
   {
-    "test_name": "inner_product_both_empty",
-    "module": "ex3",
-    "function": "inner_product",
-    "args": [[], []],
-    "input_text": [],
+    "test_name": "in bounds and cont x (i)",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+],
+4, [11, 5]],
+    "input_text": null,
     "kwargs": {},
-    "expected_return": 0,
-    "expected_output": ""
-  },
-  {
-    "test_name": "sequence_monotonicity_increasing",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[1, 2, 3, 4, 5, 6, 7, 8]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [true, true, false, false],
-    "expected_output": ""
-  },
-  {
-    "test_name": "sequence_monotonicity_non_strict_increase",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[1, 2, 2, 3]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [true, false, false, false],
-    "expected_output": ""
-  },
-  {
-    "test_name": "sequence_monotonicity_constant",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[1, 1, 1, 1]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [true, false, true, false],
-    "expected_output": ""
-  },
-  {
-    "test_name": "sequence_monotonicity_descending",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[3, 2, 1, 1]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, true, false],
-    "expected_output": ""
-  },
-  {
-    "test_name": "sequence_monotonicity_mixed_float",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[7.5, 4, 3.141, 0.111]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, true, true],
-    "expected_output": ""
-  },
-  {
-    "test_name": "sequence_monotonicity_fluctuating",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[1, 0, -1, 1]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, false, false],
-    "expected_output": ""
-  },
-  {
-    "test_name": "sequence_monotonicity_fluctuating2",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[1, 0, 1, 0, 1, 0, 1]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, false, false],
-    "expected_output": ""
-  },
-  {
-    "test_name": "sequence_monotonicity_fluctuating3",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[1, 0, -1, -2, -3, -5, 10]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, false, false],
-    "expected_output": ""
-  },
-  {
-    "test_name": "sequence_monotonicity_fluctuating4",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[-1, 0, 1, -1]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, false, false],
-    "expected_output": ""
-  },
-  {
-    "test_name": "sequence_monotonicity_empty",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [true, true, true, true],
-    "expected_output": ""
-  },
-  {
-    "test_name": "sequence_monotonicity_single_positive",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[100]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [true, true, true, true],
-    "expected_output": ""
-  },
-  {
-    "test_name": "sequence_monotonicity_single_positive",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [true, true, true, true],
-    "expected_output": ""
-  },
-  {
-    "test_name": "sequence_monotonicity_single_negative",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[-10]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [true, true, true, true],
-    "expected_output": ""
-  },
-  {
-    "test_name": "sequence_monotonicity_single_zero",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[0]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [true, true, true, true],
-    "expected_output": ""
-  },
-  {
-    "test_name": "num_of_orthogonal_three_unit_vectors",
-    "module": "ex3",
-    "function": "num_of_orthogonal",
-    "args": [[[1, 0, 0], [0, 1, 0], [0, 0, 1]]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": 3,
-    "expected_output": ""
-  },
-  {
-    "test_name": "num_of_orthogonal_with_zero_vector",
-    "module": "ex3",
-    "function": "num_of_orthogonal",
-    "args": [[[0, 0, 0], [0, 1, 0], [0, 0, 1]]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": 3,
-    "expected_output": ""
-  },
-  {
-    "test_name": "num_of_orthogonal_non_orthogonal",
-    "module": "ex3",
-    "function": "num_of_orthogonal",
-    "args": [[[0, 0], [1, 2], [10, 5]]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": 2,
-    "expected_output": ""
-  },
-  {
-    "test_name": "num_of_orthogonal_none",
-    "module": "ex3",
-    "function": "num_of_orthogonal",
-    "args": [[[1, 1, 1, 1], [2, 1, 3, 3], [0, 0, 100, 33], [8, 8, 8, 1.5], [9, 9, 9, 9]]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": 0,
-    "expected_output": ""
-  },
-  {
-    "test_name": "num_of_orthogonal_all_zeros",
-    "module": "ex3",
-    "function": "num_of_orthogonal",
-    "args": [[[0], [0], [0], [0]]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": 6,
-    "expected_output": ""
-  },
-  {
-    "test_name": "num_of_orthogonal_ilayeesomething",
-    "module": "ex3",
-    "function": "num_of_orthogonal",
-    "args": [[[0,1,2,3], [0, -1, -1, 1], [0,0,0,0], [1,0,0,0]]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": 6,
-    "expected_output": ""
-  },
-{
-    "test_name": "example_matrix_4x5_sum",
-    "module": "ex3",
-    "function": "convolve",
-    "args": [
-      [
-        [0, 1, 1, 1, 1],
-        [0, 0, 0, 1, 1],
-        [1, 0, 1, 0, 0],
-        [0, 1, 0, 0, 0.5]
-      ]
-    ],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [
-      [4.0, 5.0, 6.0],
-      [3.0, 3.0, 3.5]
-    ],
-    "expected_output": ""
-  },
-  {
-    "test_name": "matrix_3x3_sum",
-    "module": "ex3",
-    "function": "convolve",
-    "args": [
-      [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]
-      ]
-    ],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [
-      [45.0]
-    ],
-    "expected_output": ""
-  },
-  {
-    "test_name": "matrix_3x4_sum",
-    "module": "ex3",
-    "function": "convolve",
-    "args": [
-      [
-        [1, 1, 1, 0],
-        [1, 1, 1, 0],
-        [1, 1, 1, 0]
-      ]
-    ],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [
-      [9.0, 6.0]
-    ],
-    "expected_output": ""
-  },
-  {
-    "test_name": "matrix_4x3_sum",
-    "module": "ex3",
-    "function": "convolve",
-    "args": [
-      [
-        [-1, 1, 1],
-        [1, 1, 1],
-        [1, 1, 1],
-        [0, 0, 0]
-      ]
-    ],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [
-      [7.0],
-      [6.0]
-    ],
-    "expected_output": ""
-  },
-  {
-    "test_name": "large_rectangular_mixed_values",
-    "module": "ex3",
-    "function": "convolve",
-    "args": [
-      [
-        [ 10, -5,  0,  1,  4, -2],
-        [ -1,  2,  3, -3,  0,  5],
-        [  0,  0, -9,  8,  1,  1],
-        [  5, -5,  2,  0, -7,  2],
-        [  1,  1,  0,  6, -3,  0]
-      ]
-    ],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [
-      [ 0.0, -3.0,  5.0, 15.0],
-      [-3.0, -2.0, -5.0,  7.0],
-      [-5.0,  3.0, -2.0,  8.0]
-    ],
-    "expected_output": ""
-  },
-  {
-    "test_name": "empty_matrix",
-    "module": "ex3",
-    "function": "convolve",
-    "args": [
-      []
-    ],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": null,
+    "expected_return": true,
     "expected_output": ""
   },{
-    "test_name": "correct print for input list",
-    "module": "ex3",
-    "function": "input_list",
-    "args": [],
-    "input_text": ["311\n0\n-3\n2\n\n"],
+    "test_name": "in bounds start x (i)",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+],
+1, [14, 5]],
+    "input_text": null,
     "kwargs": {},
-    "expected_return": [311.0, 0.0, -3.0, 2.0, 310.0],
+    "expected_return": true,
     "expected_output": ""
-  },
-{
-    "test_name": "correct print for empty input list",
-    "module": "ex3",
-    "function": "input_list",
-    "args": [],
-    "input_text": ["\n"],
+  },{
+    "test_name": "in bounds start y (i)",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+],
+4, [5, 11]],
+    "input_text": null,
     "kwargs": {},
-    "expected_return": [0.0],
-    "expected_output": ""
-  },
-{
-    "test_name": "correct print for input list",
-    "module": "ex3",
-    "function": "input_list",
-    "args": [],
-    "input_text": ["311\n0\n-3\n2\n\n"],
-    "kwargs": {},
-    "expected_return": [311, 0, -3, 2, 310],
-    "expected_output": ""
-  },
-
-{
-    "test_name": "inner_product_first_vec_empty",
-    "module": "ex3",
-    "function": "inner_product",
-    "args": [[], [0]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": null,
-    "expected_output": ""
-  },
-
-{
-    "test_name": "inner_product_second_vec_longer",
-    "module": "ex3",
-    "function": "inner_product",
-    "args": [[1, 2, 3], [4, 5, 6, 7]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": null,
-    "expected_output": ""
-  },
-{
-    "test_name": "inner_product_first_vec_longer",
-    "module": "ex3",
-    "function": "inner_product",
-    "args": [[1, 2, 3], [4, 5]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": null,
-    "expected_output": ""
-  },
-{
-    "test_name": "sequence_monotonicity_increase",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[1, 2, 2.5, 3]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [true, true, false, false],
+    "expected_return": true,
     "expected_output": ""
   },
   {
-      "test_name": "sequence_monotonicity_non_strict_increase",
-      "module": "ex3",
-      "function": "sequence_monotonicity",
-      "args": [[1, 2, 2, 3]],
-      "input_text": [],
-      "kwargs": {},
-      "expected_return": [true, false, false, false],
-      "expected_output": ""
-    },
-  {
-    "test_name": "sequence_monotonicity_decrease",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[3, 2, 1, 0, -1]],
-    "input_text": [],
+    "test_name": "valid ship at origin",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 3, [0, 0]],
+    "input_text": null,
     "kwargs": {},
-    "expected_return": [false, false, true, true],
-    "expected_output": ""
-  },
-{
-    "test_name": "sequence_monotonicity_non_strict_decrease",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[2, 1, 0, 0, -1]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, true, false],
-    "expected_output": ""
-  },
-{
-    "test_name": "sequence_monotonicity_non_monotonous",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[1, 2, -1, 0]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, false, false],
-    "expected_output": ""
-  },
-{
-    "test_name": "sequence_monotonicity_all_equal",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[2, 2, 2, 2]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [true, false, true, false],
-    "expected_output": ""
-  },
-{
-    "test_name": "sequence_monotonicity_single_value",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[1]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [true, true, true, true],
-    "expected_output": ""
-  },
-{
-    "test_name": "sequence_monotonicity_first_breaks_monotony",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[1, 0, 1, 2, 3]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, false, false],
-    "expected_output": ""
-  },
-{
-    "test_name": "sequence_monotonicity_last_breaks_monotony",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[1, 2, 3, 1]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, false, false],
-    "expected_output": ""
-  },
-{
-    "test_name": "sequence_monotonicity_multiple_changes_1",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[1, 2, 3, 2, 4]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, false, false],
-    "expected_output": ""
-  },
-{
-    "test_name": "sequence_monotonicity_multiple_changes_2",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[1, 2, 3, 2, 1, 0, 1]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, false, false],
-    "expected_output": ""
-  },
-{
-    "test_name": "sequence_monotonicity_multiple_changes_3",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[1, 0, -1, 0, 1]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, false, false],
-    "expected_output": ""
-  },
-{
-    "test_name": "sequence_monotonicity_multiple_changes_4",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[2, 1, 0, 1, 2, 1]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, false, false],
-    "expected_output": ""
-  },
-{
-    "test_name": "sequence_monotonicity_negative_increasing",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[-1, -0.5, -0.333]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [true, true, false, false],
-    "expected_output": ""
-  },
-
-{
-    "test_name": "sequence_monotonicity_negative_decreasing",
-    "module": "ex3",
-    "function": "sequence_monotonicity",
-    "args": [[-3, -7, -7, -18]],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [false, false, true, false],
-    "expected_output": ""
-  },
-{
-    "test_name": "filter_list_bigger_than_positive",
-    "module": "ex3",
-    "function": "filter_list",
-    "args": [[1, 2, 3, 2, 4], ">", 2],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [3, 4],
-    "expected_output": ""
-  },
-{
-    "test_name": "filter_list_bigger_than_negative",
-    "module": "ex3",
-    "function": "filter_list",
-    "args": [[7, 3, -1, -19], ">", -5],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [7, 3, -1],
-    "expected_output": ""
-  },
-{
-    "test_name": "filter_list_bigger_than_fraction",
-    "module": "ex3",
-    "function": "filter_list",
-    "args": [[1, 2, 3, 4, -5], ">", 1.7],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [2, 3, 4],
+    "expected_return": true,
     "expected_output": ""
   },
   {
-    "test_name": "filter_list_and_its_empty",
-    "module": "ex3",
-    "function": "filter_list",
-    "args": [[], ">", 10],
-    "input_text": [],
+    "test_name": "same starting place battleship",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[[1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 4, [0, 0]],
+    "input_text": null,
     "kwargs": {},
-    "expected_return": [],
+    "expected_return": false,
     "expected_output": ""
   },
   {
-    "test_name": "filter_list_and_its_empty2",
-    "module": "ex3",
-    "function": "filter_list",
-    "args": [[], "=", 10],
-    "input_text": [],
+    "test_name": "ship in the place of the continuation of the battleship",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[[0, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 4, [0, 0]],
+    "input_text": null,
     "kwargs": {},
-    "expected_return": [],
-    "expected_output": ""
-  },
-{
-    "test_name": "filter_list_smaller_than_positive",
-    "module": "ex3",
-    "function": "filter_list",
-    "args": [[1, 2, 3, 0, 4], "<", 3],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [1, 2, 0],
-    "expected_output": ""
-  },
-{
-    "test_name": "filter_list_smaller_than_negative",
-    "module": "ex3",
-    "function": "filter_list",
-    "args": [[7, 3, -1, -19], "<", -5],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [-19],
-    "expected_output": ""
-  },
-{
-    "test_name": "filter_list_smaller_than_fraction",
-    "module": "ex3",
-    "function": "filter_list",
-    "args": [[1, 2, 3, 2, -5], "<", 1.7],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [1, -5],
-    "expected_output": ""
-  },
-{
-    "test_name": "filter_list_multiple_appearances",
-    "module": "ex3",
-    "function": "filter_list",
-    "args": [[1, 0, -1, 0, 1, 2], "<", 1],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [0, -1, 0],
-    "expected_output": ""
-  },
-{
-    "test_name": "filter_list_equal_to_positive",
-    "module": "ex3",
-    "function": "filter_list",
-    "args": [[1, 2, 3, 0, 4], "=", 3],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [3],
-    "expected_output": ""
-  },
-{
-    "test_name": "filter_list_equal_to_negative",
-    "module": "ex3",
-    "function": "filter_list",
-    "args": [[7, 3, -1, -5, -19], "=", -5],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [-5],
-    "expected_output": ""
-  },
-{
-    "test_name": "filter_list_equal_to_fraction",
-    "module": "ex3",
-    "function": "filter_list",
-    "args": [[1, 2, 1.7, 2, -5], "=", 1.7],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [1.7],
-    "expected_output": ""
-  },
-{
-    "test_name": "filter_list_empty_list",
-    "module": "ex3",
-    "function": "filter_list",
-    "args": [[], "<", 1],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [],
-    "expected_output": ""
-  },
-{
-    "test_name": "cycle_sublist_step_is_1",
-    "module": "ex3",
-    "function": "cycle_sublist",
-    "args": [[1, 2, 3, 4, 5], 1, 1],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [2, 3, 4, 5, 1],
-    "expected_output": ""
-  },
-{
-    "test_name": "cycle_sublist_step_is_2",
-    "module": "ex3",
-    "function": "cycle_sublist",
-    "args": [[1, 2, 3, 4, 5], 1, 2],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [2, 4, 1],
-    "expected_output": ""
-  },
-{
-    "test_name": "cycle_sublist_skips_1st",
-    "module": "ex3",
-    "function": "cycle_sublist",
-    "args": [[1, 2, 3, 4, 5, 6], 3, 2],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [4, 6, 2],
-    "expected_output": ""
-  },
-{
-    "test_name": "cycle_sublist_start_is_0_step_2",
-    "module": "ex3",
-    "function": "cycle_sublist",
-    "args": [[1, 2, 3, 4, 5], 0, 2],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [1, 3, 5],
-    "expected_output": ""
-  },
-{
-    "test_name": "cycle_sublist_start_is_0_step_1",
-    "module": "ex3",
-    "function": "cycle_sublist",
-    "args": [[1, 2, 3, 4, 5], 0, 1],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [1, 2, 3, 4, 5],
-    "expected_output": ""
-  },
-{
-    "test_name": "cycle_sublist_cycle_passes_start",
-    "module": "ex3",
-    "function": "cycle_sublist",
-    "args": [[1, 2, 3, 4, 5], 1, 3],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [2, 5],
-    "expected_output": ""
-  },
-{
-    "test_name": "cycle_sublist_cycle_lands_on_start",
-    "module": "ex3",
-    "function": "cycle_sublist",
-    "args": [[1, 2, 3, 4], 1, 2],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [2, 4],
-    "expected_output": ""
-  },
-{
-    "test_name": "cycle_sublist_step_bigger_than_length",
-    "module": "ex3",
-    "function": "cycle_sublist",
-    "args": [[1, 2, 3, 4, 5], 1, 8],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [2],
-    "expected_output": ""
-  },
-{
-    "test_name": "cycle_sublist_step_equals_length",
-    "module": "ex3",
-    "function": "cycle_sublist",
-    "args": [[1, 2, 3, 4, 5], 3, 5],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [4],
-    "expected_output": ""
-  },
-{
-    "test_name": "cycle_sublist_with_fractions",
-    "module": "ex3",
-    "function": "cycle_sublist",
-    "args": [[1, 2, 3.5, 4.1267312, 5], 1, 1],
-    "input_text": [],
-    "kwargs": {},
-    "expected_return": [2, 3.5, 4.1267312, 5, 1],
+    "expected_return": false,
     "expected_output": ""
   },
   {
-    "test_name": "cycle_sublist_with_negatives",
-    "module": "ex3",
-    "function": "cycle_sublist",
-    "args": [[1, 2, -3.5, -4.1267312, 5], 1, 1],
-    "input_text": [],
+    "test_name": "ship extends beyond bottom boundary",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 4, [6, 0]],
+    "input_text": null,
     "kwargs": {},
-    "expected_return": [2, -3.5, -4.1267312, 5, 1],
+    "expected_return": false,
     "expected_output": ""
-  }
+  },
+  {
+    "test_name": "ship at last valid row",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 3, [5, 0]],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": true,
+    "expected_output": ""
+  },
+  {
+    "test_name": "ship at last column",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 2, [3, 7]],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": true,
+    "expected_output": ""
+  },
+  {
+    "test_name": "ship column out of bounds",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 2, [3, 8]],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": false,
+    "expected_output": ""
+  },
+  {
+    "test_name": "negative row position",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], 2, [-1, 3]],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": false,
+    "expected_output": ""
+  },
+  {
+    "test_name": "negative column position",
+    "module": "battleship",
+    "function": "valid_ship",
+    "args": [[
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0]],
+      2,
+      [3, -1]],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": false,
+    "expected_output": ""
+  },
+  {
+    "test_name": "convert A1 to location",
+    "module": "battleship",
+    "function": "cell_name_to_loc",
+    "args": ["A1"],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": [0, 0],
+    "expected_output": ""
+  },
+  {
+    "test_name": "convert B5 to location",
+    "module": "battleship",
+    "function": "cell_name_to_loc",
+    "args": ["B5"],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": [4, 1],
+    "expected_output": ""
+  },
+  {
+    "test_name": "convert lowercase a3 to location",
+    "module": "battleship",
+    "function": "cell_name_to_loc",
+    "args": ["a3"],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": [2, 0],
+    "expected_output": ""
+  },
+  {
+    "test_name": "convert lowercas z99 to location",
+    "module": "battleship",
+    "function": "cell_name_to_loc",
+    "args": ["z99"],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": [98, 25],
+    "expected_output": ""
+  },
+  {
+    "test_name": "convert H8 to location",
+    "module": "battleship",
+    "function": "cell_name_to_loc",
+    "args": ["H8"],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": [7, 7],
+    "expected_output": ""
+  },
+  {
+    "test_name": "valid torpedo at origin",
+    "module": "battleship",
+    "function": "valid_torpedo",
+    "args": [[[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], [0, 0]],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": true,
+    "expected_output": ""
+  },
+  {
+    "test_name": "valid torpedo at bottom right",
+    "module": "battleship",
+    "function": "valid_torpedo",
+    "args": [[[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], [7, 7]],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": true,
+    "expected_output": ""
+  },
+  {
+    "test_name": "torpedo out of bounds row",
+    "module": "battleship",
+    "function": "valid_torpedo",
+    "args": [[[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], [8, 3]],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": false,
+    "expected_output": ""
+  },
+  {
+    "test_name": "torpedo negative position",
+    "module": "battleship",
+    "function": "valid_torpedo",
+    "args": [[[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], [-1, 3]],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": false,
+    "expected_output": ""
+  },
+  {
+    "test_name": "init board 8x8",
+    "module": "battleship",
+    "function": "init_board",
+    "args": [8, 8],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]],
+    "expected_output": ""
+  },
+  {
+    "test_name": "init board 5x10",
+    "module": "battleship",
+    "function": "init_board",
+    "args": [5, 10],
+    "input_text": null,
+    "kwargs": {},
+    "expected_return": [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+    "expected_output": ""
+  },{
+   "test_name": "main",
+    "module": "battleship",
+    "function": "main",
+    "args": [
+      [
+      [1, 1, 0, 0, 0, 0, 0, 0],
+      [1, 1, 0, 0, 0, 0, 0, 0],
+      [1, 1, 1, 0, 0, 0, 0, 0],
+      [1, 1, 1, 1, 0, 0, 0, 0],
+      [1, 1, 1, 1, 1, 0, 0, 0],
+      [0, 0, 0, 1, 1, 1, 0, 0],
+      [0, 0, 0, 0, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0]
+      ], [
+      [0, 1, 0, 1, 0, 1, 0, 0],
+      [0, 1, 0, 1, 0, 1, 0, 0],
+      [0, 1, 0, 1, 0, 1, 0, 0],
+      [0, 1, 0, 1, 0, 1, 0, 0],
+      [0, 1, 0, 1, 0, 1, 0, 0],
+      [0, 1, 0, 0, 0, 0, 0, 0],
+      [0, 1, 0, 0, 1, 0, 0, 0],
+      [0, 1, 0, 0, 1, 0, 0, 0]
+      ]],
+    "input_text": ["B1\nD1\nF1\nB2\nD2\nF2\nB3\nD3\nF3\nB4\nD4\nF4\nB5\nD5\nF5\nB6\nB7\nE7\nB8\nE8"],
+    "kwargs": {},
+    "expected_return": [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+    "expected_output": ""
+}
 ]
