@@ -30,9 +30,6 @@ class TestRunner:
         if self.temp_dir and os.path.exists(self.temp_dir):
             shutil.rmtree(self.temp_dir)
 
-    # -------------------------------------------------------
-    # ZIP module loader (identical to ex3 behavior)
-    # -------------------------------------------------------
     def _prepare_modules_from_zip(self):
         if not os.path.exists(self.modules_zip):
             print(f"Error: ZIP file '{self.modules_zip}' not found.")
@@ -95,7 +92,7 @@ class TestRunner:
         Imports battleship.py but replaces module 'helper'
         with 'test_helper' from ex4.zip
         """
-        # Load test_helper from extracted folder
+
         try:
             test_helper = importlib.import_module("test_helper")
         except Exception:
@@ -167,9 +164,6 @@ class TestRunner:
 
         return result
 
-    # -------------------------------------------------------
-    # Formatting identical to ex3
-    # -------------------------------------------------------
     def format_failure_report(self, r: Dict) -> str:
         lines = [
             "=" * 80,
@@ -245,9 +239,6 @@ class TestRunner:
         print(f"\nReport written to: {self.output_file}")
 
 
-# -------------------------------------------------------
-# Run directly
-# -------------------------------------------------------
 if __name__ == "__main__":
     print("\nStarting Battleship test suite...\n")
 
