@@ -11,7 +11,7 @@ import shutil
 
 
 class TestRunner:
-    def __init__(self, test_file="main_cases.json", output_file="game_simulation_results.txt", modules_zip="ex4.zip"):
+    def __init__(self, test_file="tests.json", output_file="game_simulation_results.txt", modules_zip="ex4.zip"):
         self.test_file = test_file
         self.output_file = output_file
         self.modules_zip = modules_zip
@@ -22,7 +22,6 @@ class TestRunner:
 
         self.temp_dir = None
 
-        # prepare ZIP modules
         if self.modules_zip:
             self._prepare_modules_from_zip()
 
@@ -30,36 +29,35 @@ class TestRunner:
         if self.temp_dir and os.path.exists(self.temp_dir):
             shutil.rmtree(self.temp_dir)
 
+    # ZIP LOADING
     def _prepare_modules_from_zip(self):
         if not os.path.exists(self.modules_zip):
-            print(f"Error: ZIP file '{self.modules_zip}' not found.")
+            print(f"Error: ZIP '{self.modules_zip}' not found.")
             sys.exit(1)
 
         self.temp_dir = tempfile.mkdtemp(prefix="modules_")
-        with zipfile.ZipFile(self.modules_zip, 'r') as z:
+        with zipfile.ZipFile(self.modules_zip, "r") as z:
             z.extractall(self.temp_dir)
 
         sys.path.insert(0, self.temp_dir)
+        print(f"✓ Extracted ex4.zip to {self.temp_dir}")
 
-    # -------------------------------------------------------
     def load_test_cases(self):
         try:
             with open(self.test_file, "r", encoding="utf-8") as f:
                 return json.load(f)
-        except Exception:
-            print(f"Error: could not load {self.test_file}")
+        except Exception as e:
+            print("Fatal: cannot load test JSON:", e)
             sys.exit(1)
 
-    # -------------------------------------------------------
-    # Utilities for Battleship helper replacement
-    # -------------------------------------------------------
     def cell_name_to_loc(self, name):
         name = name.strip().upper()
-        col = ord(name[0]) - ord('A')
+        col = ord(name[0]) - ord("A")
         row = int(name[1:]) - 1
         return (row, col)
 
     def prepare_test_helper(self, th, spec):
+
         th.NUM_ROWS = spec["rows"]
         th.NUM_COLUMNS = spec["columns"]
         th.SHIP_SIZES = tuple(spec["ship_sizes"])
@@ -67,7 +65,6 @@ class TestRunner:
         th.INPUT_QUEUE = list(spec.get("input_text", []))
         th._input_index = 0
 
-        # deterministic computer ship placement
         raw_sp = spec.get("computer_ship_placements", [])
         th.SHIP_PLACEMENTS = [
             self.cell_name_to_loc(x) if isinstance(x, str) else tuple(x)
@@ -75,7 +72,6 @@ class TestRunner:
         ]
         th._ship_index = 0
 
-        # deterministic computer torpedoes
         raw_ts = spec.get("computer_torpedo_sequence", [])
         th.TORPEDO_SEQUENCE = [
             self.cell_name_to_loc(x) if isinstance(x, str) else tuple(x)
@@ -86,47 +82,51 @@ class TestRunner:
         if hasattr(th, "reset"):
             th.reset()
 
-    # -------------------------------------------------------
-    def import_battleship_with_test_helper(self, spec):
-        """
-        Imports battleship.py but replaces module 'helper'
-        with 'test_helper' from ex4.zip
-        """
+    # Import Battleship with helper swapped out
+    def import_battleship(self, spec):
 
-        try:
-            test_helper = importlib.import_module("test_helper")
-        except Exception:
-            print("❌ Could not import test_helper from ex4.zip")
-            sys.exit(1)
+        test_helper = importlib.import_module("test_helper")
 
-        # Override helper
         sys.modules["helper"] = test_helper
-
-        # Apply test-case configuration to helper
         self.prepare_test_helper(test_helper, spec)
 
-        # Import fresh battleship
         if "battleship" in sys.modules:
             del sys.modules["battleship"]
 
         return importlib.import_module("battleship"), test_helper
 
-    # -------------------------------------------------------
     def capture_output(self, func):
         from io import StringIO
 
-        old_stdout = sys.stdout
-        sys.stdout = captured = StringIO()
+        old = sys.stdout
+        sys.stdout = cap = StringIO()
 
         try:
             func()
-            out = captured.getvalue()
+            return cap.getvalue()
         finally:
-            sys.stdout = old_stdout
+            sys.stdout = old
 
-        return out
+    # Extract only show_board blocks
+    def extract_show_board_only(self, output: str) -> str:
+        lines = output.splitlines()
+        inside = False
+        result = []
 
-    # -------------------------------------------------------
+        for line in lines:
+            stripped = line.strip()
+            if stripped == "===SHOW_BOARD===":
+                inside = True
+                continue
+            if stripped == "===END_SHOW_BOARD===":
+                inside = False
+                result.append("")  # separate blocks
+                continue
+            if inside:
+                result.append(line)
+
+        return "\n".join(result).strip()
+
     def run_single_test(self, spec: Dict) -> Dict:
         test_name = spec["test_name"]
 
@@ -142,18 +142,19 @@ class TestRunner:
         }
 
         try:
-            battleship, th = self.import_battleship_with_test_helper(spec)
-
-            # Always test the main()
+            battleship, th = self.import_battleship(spec)
             func = getattr(battleship, spec["function"], None)
             if func is None:
                 raise Exception(f"Function {spec['function']} not found in battleship.py")
 
-            actual = self.capture_output(func)
-            result["actual_output"] = actual.strip()
+            raw = self.capture_output(func)
+            actual = self.extract_show_board_only(raw)
+            expected = spec.get("expected_output", "")
 
-            expected = spec.get("expected_output", "").strip()
-            if actual.strip() == expected:
+            result["actual_output"] = actual
+            result["expected_output"] = expected
+
+            if actual == expected:
                 result["passed"] = True
             else:
                 result["error"] = "Output mismatch"
@@ -214,7 +215,6 @@ class TestRunner:
 
     # -------------------------------------------------------
     def run_all_tests(self):
-
         tests = self.load_test_cases()
         print(f"Running {len(tests)} tests...\n")
 
@@ -239,14 +239,13 @@ class TestRunner:
         print(f"\nReport written to: {self.output_file}")
 
 
+# -------------------------------------------------------
 if __name__ == "__main__":
     print("\nStarting Battleship test suite...\n")
-
     runner = TestRunner(
-        test_file="main_cases.json",
+        test_file="tests.json",
         output_file="game_simulation_results.txt",
         modules_zip="ex4.zip"
     )
     runner.run_all_tests()
-
     input("\nPress Enter to exit...")
