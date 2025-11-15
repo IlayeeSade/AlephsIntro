@@ -46,24 +46,31 @@ def show_msg(msg):
     print(msg)
 
 def show_board(board1, board2=None):
-    # Minimal textual representation to keep captured log meaningful.
-    # We'll print header + rows for each board side-by-side similar to original helper.
-    # For testing, a simple representation is used.
+    """
+    Only output board content, wrapped in markers so tester can detect it.
+    """
     def row_to_str(r):
-        return ''.join('x' if c==SHIP else
-                       '*' if c==HIT_SHIP else
-                       'o' if c==HIT_WATER else
-                       '.' for c in r)
+        return ''.join(
+            'x' if c == SHIP else
+            '*' if c == HIT_SHIP else
+            'o' if c == HIT_WATER else
+            '.' for c in r
+        )
+
+    print("===SHOW_BOARD===")
+
     if board2 is None:
-        print('\n'.join(row_to_str(r) for r in board1))
+        for row in board1:
+            print(row_to_str(row))
     else:
-        # print both boards separated by " | "
         rows1 = [row_to_str(r) for r in board1]
         rows2 = [row_to_str(r) for r in board2]
         for i in range(max(len(rows1), len(rows2))):
             a = rows1[i] if i < len(rows1) else ''
             b = rows2[i] if i < len(rows2) else ''
             print(f"{a} | {b}")
+
+    print("===END_SHOW_BOARD===")
 
 def is_cell_name(s):
     return bool(s) and s[:1].isalpha() and s[1:].isdigit()
