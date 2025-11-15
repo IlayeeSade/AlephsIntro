@@ -1,0 +1,30 @@
+[
+  {
+    "test_name": "simple_game",
+    "module": "battleship.py",
+    "function": "main",
+    "rows": 5,
+    "columns": 5,
+    "ship_sizes": [1],
+    "input_text": [
+      "A1", "A1" ,"N"
+    ],
+    "computer_ship_placements": ["A1"],
+    "computer_torpedo_sequence": ["B1"],
+    "expected_output": ".....\n.....\n.....\n.....\n.....\nEnter ship of size 1 top location: A1\nx.... | .....\n..... | .....\n..... | .....\n..... | .....\n..... | .....\nEnter coordinates to send the torpedo to: A1\nxo... | *....\n..... | .....\n..... | .....\n..... | .....\n..... | .....\nPlay again? (Y/N): N"
+  },
+    {
+    "test_name": "game_2",
+    "module": "battleship.py",
+    "function": "main",
+    "rows": 5,
+    "columns": 5,
+    "ship_sizes": [1],
+    "input_text": [
+      "A1", "A1" ,"N"
+    ],
+    "computer_ship_placements": ["A1"],
+    "computer_torpedo_sequence": ["B1"],
+    "expected_output": "just 2"
+  }
+]
