@@ -11,7 +11,7 @@ import shutil
 
 
 class TestRunner:
-    def __init__(self, test_file="tests_main.json", output_file="game_simulation_results.txt", modules_zip="ex4.zip"):
+    def __init__(self, test_file="main_cases.json", output_file="game_simulation_results.txt", modules_zip="ex4.zip"):
         self.test_file = test_file
         self.output_file = output_file
         self.modules_zip = modules_zip
@@ -243,7 +243,7 @@ if __name__ == "__main__":
     print("\nStarting Battleship test suite...\n")
 
     runner = TestRunner(
-        test_file="tests.json",
+        test_file="main_cases.json",
         output_file="game_simulation_results.txt",
         modules_zip="ex4.zip"
     )
