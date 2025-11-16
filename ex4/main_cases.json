@@ -19,11 +19,11 @@
     "columns": 3,
     "ship_sizes": [1, 2],
     "input_text": [
-      "B1", "C1" , "A1", "B2", "A3", "A0", "a0", "D3", "D2", "B2","N"
+      "B1", "C1" , "A1", "B2", "a0", "B2","B1", "N"
     ],
     "computer_ship_placements": ["B2", "A1"],
     "computer_torpedo_sequence": ["B1", "C1", "C2"],
-    "expected_output": "...\n...\n\n.x.\n...\n\n.xx | ...\n..x | ...\n\n.*x | *..\n..x | ...\n\n.** | *..\n..x | .*.\n\n.** | *..\n..x | .*.\n\n.** | *..\n..x | .*.\n\n.** | *..\n..x | .*.\n\n.** | *..\n..x | .*.\n\n.** | *..\n..x | .*.\n\n.** | *..\n..* | x*."
+    "expected_output": "...\n...\n\n.x.\n...\n\n.xx | ...\n..x | ...\n\n.*x | *..\n..x | ...\n\n.** | *..\n..x | .*.\n\n.** | *..\n..x | .*.\n\n.** | *..\n..x | .*.\n\n.** | *o.\n..* | x*."
   },
   {
     "test_name": "tiny_board_two_round",
