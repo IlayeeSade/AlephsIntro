@@ -5,41 +5,169 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AlephsIntro</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background: #f9f9f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
+    
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 50px 40px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 0.6s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
     h1 {
-      margin-bottom: 20px;
+      font-size: 2.5em;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 700;
     }
+    
+    .links-section {
+      margin-bottom: 35px;
+    }
+    
     ul {
       list-style: none;
-      padding: 0;
     }
+    
     li {
-      background: white;
-      padding: 10px;
-      margin-bottom: 8px;
-      border-radius: 6px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 16px;
+      transform: translateX(0);
+      transition: transform 0.3s ease;
     }
+    
+    li:hover {
+      transform: translateX(8px);
+    }
+    
     a {
-      color: #0066cc;
+      display: block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
       text-decoration: none;
+      padding: 18px 24px;
+      border-radius: 12px;
+      font-size: 1.1em;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    a:hover::before {
+      left: 100%;
+    }
+    
+    a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+    }
+    
+    .info-box {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+      padding: 24px;
+      border-radius: 12px;
+      border-left: 4px solid #667eea;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+    
+    .info-box p {
+      color: #4a5568;
+      line-height: 1.6;
+      font-size: 1em;
+    }
+    
+    .embed-container {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      background: white;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    @media (max-width: 600px) {
+      .container {
+        padding: 30px 20px;
+      }
+      
+      h1 {
+        font-size: 2em;
+      }
+      
+      a {
+        font-size: 1em;
+        padding: 16px 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>AlephsIntro</h1>
-
-  <ul id="linksList">
-    <li><a href="https://drive.google.com/drive/folders/1p5ZQNks0ARVf-_jyB2GNUSwYIzsDzsE8?usp=share_link" target="_blank">Our Drive</a></li>
-    <li><a href="https://docs.google.com/spreadsheets/d/1gEf01NXhSO2VfNnfr9it_XnsnES49rHvX2xaksnBbZQ/edit?gid=725131744#gid=725131744" target="_blank">Ex6 Forum</a></li>
-</ul>
-<p>
-  The Forum idea is to write solutions to problems you tackled to help others and see if there are shared problems for efficiency.
-</p>
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/otyw35g"  ><a href="//imgur.com/a/otyw35g"></a></blockquote>
-  <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script></body>
+  <div class="container">
+    <h1>AlephsIntro🦄</h1>
+    
+    <div class="links-section">
+      <ul id="linksList">
+        <li><a href="https://drive.google.com/drive/folders/1p5ZQNks0ARVf-_jyB2GNUSwYIzsDzsE8?usp=share_link" target="_blank">📁 Our Drive</a></li>
+        <li><a href="https://docs.google.com/spreadsheets/d/1gEf01NXhSO2VfNnfr9it_XnsnES49rHvX2xaksnBbZQ/edit?gid=725131744#gid=725131744" target="_blank">💬 Ex6 Forum</a></li>
+      </ul>
+    </div>
+    
+    <div class="info-box">
+      <p>
+        The Forum idea is to write solutions to problems you tackled to help others and see if there are shared problems for efficiency.
+      </p>
+    </div>
+    
+    <div class="embed-container">
+      <blockquote class="imgur-embed-pub" lang="en" data-id="a/otyw35g"><a href="//imgur.com/a/otyw35g"></a></blockquote>
+      <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+    </div>
+  </div>
+</body>
 </html>
