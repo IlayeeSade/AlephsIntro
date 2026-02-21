@@ -1,0 +1,345 @@
+[
+  {
+    "test_name": "Direction_U_Simple",
+    "wordlist_content": "UP",
+    "matrix_content": "a,b,c,d,e\nf,g,h,P,j\nk,l,m,U,o\np,q,r,s,t\nu,v,w,x,y",
+    "directions": "u",
+    "expected_output_content": "UP,1"
+  },
+  {
+    "test_name": "Direction_U_Medium_Multiple",
+    "wordlist_content": "RISE\nCLIMB",
+    "matrix_content": "a,b,c,E,d,e,f,B\ng,h,i,S,j,k,l,M\nm,n,o,I,p,q,r,I\ns,t,u,R,v,w,x,L\ny,z,A,B,C,D,E,C\nF,G,H,E,J,K,L,M\nM,N,O,S,P,Q,R,S\nT,U,V,I,W,X,Y,T\nZ,a,b,R,c,d,e,f",
+    "directions": "u",
+    "expected_output_content": "RISE,2\nCLIMB,1"
+  },
+  {
+    "test_name": "Direction_D_Simple",
+    "wordlist_content": "DOWN",
+    "matrix_content": "a,D,b,c,d\ne,O,f,g,h\ni,W,j,k,l\nm,N,n,o,p\nq,r,s,t,u",
+    "directions": "d",
+    "expected_output_content": "DOWN,1"
+  },
+  {
+    "test_name": "Direction_D_Medium_Multiple",
+    "wordlist_content": "FALL\nDROP",
+    "matrix_content": "F,a,b,D,c,d,e,f\nA,g,h,R,i,j,F,k\nL,l,m,O,n,o,A,p\nL,q,r,P,s,t,L,u\nv,w,x,y,z,A,L,B\nC,D,E,F,G,H,I,J\nK,L,M,D,O,N,P,Q\nR,S,T,U,V,W,X,Y",
+    "directions": "d",
+    "expected_output_content": "FALL,2\nDROP,1"
+  },
+  {
+    "test_name": "Direction_R_Simple",
+    "wordlist_content": "GO",
+    "matrix_content": "a,b,c,d,e\nf,g,h,i,j\nk,G,O,l,m\nn,o,p,q,r\ns,t,u,v,w",
+    "directions": "r",
+    "expected_output_content": "GO,1"
+  },
+  {
+    "test_name": "Direction_R_Medium_Multiple",
+    "wordlist_content": "RIGHT\nLINE",
+    "matrix_content": "R,I,G,H,T,a,b,c,d\ne,f,g,h,i,j,k,l,m\nn,o,p,q,L,I,N,E,r\ns,t,u,v,w,x,y,z,A\nB,C,D,E,F,G,H,I,J\nK,L,M,N,O,P,Q,R,S\nT,U,V,W,X,Y,Z,a,b\nc,d,e,R,I,G,H,T,f\ng,h,i,j,k,l,m,n,o",
+    "directions": "r",
+    "expected_output_content": "RIGHT,2\nLINE,1"
+  },
+  {
+    "test_name": "Direction_L_Simple",
+    "wordlist_content": "GO",
+    "matrix_content": "a,b,c,d,e\nf,g,h,i,j\nk,l,O,G,m\nn,o,p,q,r\ns,t,u,v,w",
+    "directions": "l",
+    "expected_output_content": "GO,1"
+  },
+  {
+    "test_name": "Direction_L_Medium_Multiple",
+    "wordlist_content": "LEFT\nBACK",
+    "matrix_content": "a,b,c,d,e,f,g,h,i\nj,k,l,T,F,E,L,m,n\no,p,q,r,s,t,u,v,w\nx,y,z,A,B,C,D,E,F\nG,H,I,J,K,C,A,B,L\nM,N,O,P,Q,R,S,T,U\nV,W,X,Y,Z,a,b,c,d\ne,f,g,h,K,C,A,B,i\nj,k,l,m,n,o,p,q,r",
+    "directions": "l",
+    "expected_output_content": "LEFT,1\nBACK,2"
+  },
+  {
+    "test_name": "Direction_W_Simple",
+    "wordlist_content": "HI",
+    "matrix_content": "a,b,c,I,e\nf,g,H,k,j\nk,l,m,n,o\np,q,r,s,t\nu,v,w,x,y",
+    "directions": "w",
+    "expected_output_content": "HI,1"
+  },
+  {
+    "test_name": "Direction_W_Medium_Multiple",
+    "wordlist_content": "RISE\nDIAG",
+    "matrix_content": "a,b,c,E,d,e,G,g,h\ni,j,S,k,l,A,n,o,p\nq,I,t,u,I,w,x,y,z\nR,A,B,D,E,F,G,H,I\nJ,K,L,M,N,O,P,Q,E\nR,S,T,U,V,E,X,S,Y\nZ,a,b,c,S,e,I,f,g\nh,i,j,I,l,R,m,n,o\np,q,R,s,t,u,v,w,x",
+    "directions": "w",
+    "expected_output_content": "RISE,3\nDIAG,1"
+  },
+  {
+    "test_name": "Direction_X_Simple",
+    "wordlist_content": "HI",
+    "matrix_content": "a,I,c,d,e\nf,i,H,j,k\nl,m,n,o,p\nq,r,s,t,u\nv,w,x,y,z",
+    "directions": "x",
+    "expected_output_content": "HI,1"
+  },
+  {
+    "test_name": "Direction_X_Medium_Multiple",
+    "wordlist_content": "TOP\nLEFT",
+    "matrix_content": "a,b,P,d,t,f,g,h,i\nj,k,l,O,n,T,p,q,r\ns,t,s,u,T,w,F,y,z\nA,B,C,D,E,F,E,H,I\nJ,K,L,M,N,O,E,Q,R\nS,P,U,V,W,X,Y,L,a\nb,c,O,z,f,g,h,i,j\nk,l,d,T,o,p,q,r,s\nt,T,v,w,x,y,z,A,B",
+    "directions": "x",
+    "expected_output_content": "TOP,2\nLEFT,1"
+  },
+  {
+    "test_name": "Direction_Y_Simple",
+    "wordlist_content": "GO",
+    "matrix_content": "a,b,c,d,e\nf,G,h,i,j\nk,l,O,n,o\np,q,r,s,t\nu,v,w,x,y",
+    "directions": "y",
+    "expected_output_content": "GO,1"
+  },
+  {
+    "test_name": "Direction_Y_Medium_Multiple",
+    "wordlist_content": "SLIDE\nFALL",
+    "matrix_content": "S,a,b,c,S,e,f,g,h\ni,L,j,k,l,L,F,o,p\nq,r,I,F,t,u,I,A,w\nx,y,z,D,A,B,C,D,L\nE,F,G,H,E,L,K,L,E\nN,O,P,Q,R,S,L,U,V\nW,X,Y,Z,a,b,c,d,e\nf,g,h,S,j,k,l,m,n\no,p,q,r,L,s,t,u,v",
+    "directions": "y",
+    "expected_output_content": "SLIDE,2\nFALL,1"
+  },
+  {
+    "test_name": "Direction_Z_Simple",
+    "wordlist_content": "BY",
+    "matrix_content": "a,b,c,d,e\nf,g,B,i,j\nk,Y,m,n,o\np,q,r,s,t\nu,v,w,x,y",
+    "directions": "z",
+    "expected_output_content": "BY,1"
+  },
+  {
+    "test_name": "Direction_Z_Medium_Multiple_Fixed",
+    "wordlist_content": "DROP\nFALL",
+    "matrix_content": "a,b,c,d,e,f,g,D,i\nj,k,l,m,n,o,R,p,q\nr,s,t,u,v,O,x,y,z\nA,B,C,D,P,F,G,H,I\nJ,K,R,D,N,O,P,Q,R\nS,T,R,V,W,X,Y,Z,F\nP,O,b,c,d,e,f,A,j\nP,l,m,n,o,p,L,s,t\nu,v,w,x,y,L,z,A,B",
+    "directions": "z",
+    "expected_output_content": "DROP,2\nFALL,1"
+  },
+  {
+    "test_name": "NoMatches_Simple",
+    "wordlist_content": "NO\nMATCH",
+    "matrix_content": "A,B,C\nD,E,F\nG,H,I",
+    "directions": "udlrwxyz",
+    "expected_output_content": ""
+  },
+  {
+    "test_name": "NoMatches_Medium_Fixed",
+    "wordlist_content": "TEST\nPYTHON\nMATRIX",
+    "matrix_content": "A,B,C,D,E,F\nG,H,I,J,K,L\nM,A,T,R,I,P\nP,Q,R,S,T,U\nV,W,X,Y,Z,A\nB,C,D,E,F,G",
+    "directions": "udlrwxyz",
+    "expected_output_content": ""
+  },
+  {
+    "test_name": "MultipleMatches_Simple",
+    "wordlist_content": "YES\nno",
+    "matrix_content": "Y,E,S,x,x\nx,n,x,x,x\nx,o,x,x,x\nx,x,x,x,x\nx,x,x,x,x",
+    "directions": "rd",
+    "expected_output_content": "YES,1\nno,1"
+  },
+  {
+    "test_name": "MultipleMatches_Medium",
+    "wordlist_content": "PYTHON\nJava\nCODE",
+    "matrix_content": "P,Y,T,H,O,N,a,b\nc,J,d,e,f,g,h,i\nj,a,k,C,O,D,E,l\nm,v,n,o,p,q,r,s\nt,a,u,v,w,x,y,z\nA,B,C,D,E,F,G,H\nI,J,K,L,M,N,O,P\nQ,R,S,T,U,V,W,X",
+    "directions": "rdy",
+    "expected_output_content": "PYTHON,1\nJava,1\nCODE,1"
+  },
+  {
+    "test_name": "MultipleMatches_Complex",
+    "wordlist_content": "Hello\nworld\nGEMINI",
+    "matrix_content": "H,e,l,l,o,a,b,c,d,e\nf,g,h,i,j,w,k,l,m,n\no,p,q,r,s,o,t,u,v,w\nx,y,z,A,B,r,C,D,E,F\nG,H,I,J,K,l,L,M,N,O\nP,Q,R,S,T,d,U,V,W,X\nY,Z,a,b,G,E,M,I,N,I\nd,e,f,g,h,i,j,k,l,m\nw,o,r,l,d,n,o,p,q,r\ns,t,u,v,H,e,l,l,o,w",
+    "directions": "udlrwxyz",
+    "expected_output_content": "Hello,2\nworld,2\nGEMINI,1"
+  },
+  {
+    "test_name": "CaseSensitive_Mismatch_Simple",
+    "wordlist_content": "HELLO",
+    "matrix_content": "H,e,l,l,o,a,b,c\nd,e,f,g,h,i,j,k\nl,m,n,o,p,q,r,s\nt,u,v,w,x,y,z,A\nB,C,D,E,F,G,H,I\nJ,K,L,M,N,O,P,Q\nR,S,T,U,V,W,X,Y\nZ,a,b,c,d,e,f,g",
+    "directions": "r",
+    "expected_output_content": ""
+  },
+  {
+    "test_name": "CaseSensitive_Mismatch_Complex",
+    "wordlist_content": "Python\nWORLD",
+    "matrix_content": "a,b,c,d,e,f,g,h\ni,P,Y,T,H,O,N,j\nk,l,m,n,o,p,q,r\ns,t,u,v,W,o,R,l\nD,A,B,C,D,E,F,G\nH,I,J,K,L,M,N,O\nP,Q,R,S,T,U,V,W\nX,Y,Z,a,b,c,d,e",
+    "directions": "udlr",
+    "expected_output_content": ""
+  },
+  {
+    "test_name": "CaseSensitive_CorrectMatch_Mixed",
+    "wordlist_content": "PyThOn\nWoRlD\ntest",
+    "matrix_content": "a,b,c,d,e,f,g,h\ni,P,y,T,h,O,n,j\nk,l,m,n,o,p,q,r\ns,t,u,W,o,R,l,D\nD,A,B,C,D,E,F,G\nH,I,J,K,L,M,N,O\nP,Q,R,S,t,e,s,t\nX,Y,Z,a,b,c,d,e",
+    "directions": "udlr",
+    "expected_output_content": "PyThOn,1\nWoRlD,1\ntest,1"
+  },
+  {
+    "test_name": "Palindrome_Simple_RL",
+    "wordlist_content": "madam",
+    "matrix_content": "m,a,d,a,m,x,x,x\nx,x,x,x,x,x,x,x\nx,x,x,x,x,x,x,x\nx,x,x,x,x,x,x,x\nx,x,x,x,x,x,x,x\nx,x,x,x,x,x,x,x\nx,x,x,x,x,x,x,x\nx,x,x,x,x,x,x,x",
+    "directions": "rl",
+    "expected_output_content": "madam,2"
+  },
+  {
+    "test_name": "Palindrome_Simple_UD",
+    "wordlist_content": "level",
+    "matrix_content": "l,x,x,x,x,x,x,x\ne,x,x,x,x,x,x,x\nv,x,x,x,x,x,x,x\ne,x,x,x,x,x,x,x\nl,x,x,x,x,x,x,x\nx,x,x,x,x,x,x,x\nx,x,x,x,x,x,x,x\nx,x,x,x,x,x,x,x",
+    "directions": "ud",
+    "expected_output_content": "level,2"
+  },
+  {
+    "test_name": "Palindrome_Simple_Diagonal",
+    "wordlist_content": "HANNAH",
+    "matrix_content": "H,x,x,x,x,x,x,x\nx,A,x,x,x,x,x,x\nx,x,N,x,x,x,x,x\nx,x,x,N,x,x,x,x\nx,x,x,x,A,x,x,x\nx,x,x,x,x,H,x,x\nx,x,x,x,x,x,x,x\nx,x,x,x,x,x,x,x",
+    "directions": "yx",
+    "expected_output_content": "HANNAH,2"
+  },
+  {
+    "test_name": "Palindrome_Complex_Multiple",
+    "wordlist_content": "madam\nRACECAR\nlevel",
+    "matrix_content": "m,a,d,a,m,x,x,x,x,x,l\nx,x,x,x,x,R,x,x,x,e,x\nx,x,x,x,x,A,x,x,v,x,x\nx,x,x,x,x,C,x,e,x,x,x\nx,x,x,x,x,E,l,x,x,x,x\nx,x,x,x,x,C,x,x,x,x,x\nx,x,x,x,x,A,x,x,x,x,x\nx,x,x,x,x,R,x,x,x,x,x\nx,x,x,x,x,x,x,x,x,x,x\nx,x,x,x,x,x,x,x,x,x,x",
+    "directions": "udlrwxyz",
+    "expected_output_content": "madam,2\nRACECAR,2\nlevel,2"
+  },
+  {
+    "test_name": "Subword_Simple_AXE",
+    "wordlist_content": "A\nAX\nAXE",
+    "matrix_content": "A,X,E,a,b,c,d,e\nf,g,h,i,j,k,l,m\nn,o,p,q,r,s,t,u\nv,w,x,y,z,A,B,C\nD,E,F,G,H,I,J,K\nL,M,N,O,P,Q,R,S\nT,U,V,W,X,Y,Z,a\nb,c,d,e,f,g,h,i",
+    "directions": "r",
+    "expected_output_content": "A,2\nAX,1\nAXE,1"
+  },
+  {
+    "test_name": "Subword_Medium_HIGHLANDS",
+    "wordlist_content": "HI\nHIGH\nHIGHLANDS",
+    "matrix_content": "H,a,b,c,d,e,f,g,h,i,x\nj,I,k,l,m,n,o,p,q,r,x\ns,t,G,u,v,w,x,y,z,A,x\nx,B,C,H,D,E,F,G,H,I,J\nx,K,L,M,L,N,O,P,Q,R,S\nx,T,U,V,W,A,X,Y,Z,a,b\nx,c,d,e,f,g,N,h,i,j,k\nx,l,m,n,o,p,q,D,r,s,t\nx,u,v,w,x,y,z,a,S,b,c\nx,d,e,f,g,h,i,j,k,l,m",
+    "directions": "y",
+    "expected_output_content": "HI,1\nHIGH,1\nHIGHLANDS,1"
+  },
+  {
+    "test_name": "Subword_Complex_MultiWord",
+    "wordlist_content": "P\nPY\nPYTHON\nC\nCO\nCODE",
+    "matrix_content": "P,a,b,c,d,e,f,g,h,i\nY,j,k,l,m,n,o,p,q,r\nT,s,t,u,v,w,x,y,z,A\nH,B,C,D,E,F,G,H,I,J\nO,K,L,M,N,O,P,Q,R,S\nN,T,U,V,W,X,Y,Z,a,b\nc,d,e,f,g,h,i,j,k,l\nm,n,o,p,C,O,D,E,q,r\ns,t,u,v,w,x,y,z,a,b\nc,d,e,f,g,h,i,j,k,l",
+    "directions": "dr",
+    "expected_output_content": "P,4\nPY,2\nPYTHON,1\nC,4\nCO,1\nCODE,1"
+  },
+  {
+    "test_name": "MultiDir_Medium_8x8",
+    "wordlist_content": "UP\nDOWN\nLEFT\nRIGHT\nDIAGW\nDIAGX\nDIAGY\nDIAGZ",
+    "matrix_content": "R,I,G,H,T,T,F,E,L\nX,X,X,X,W,X,X,X,X\nX,X,X,G,X,X,X,X,X\nP,X,A,X,A,X,X,X,X\nU,I,X,X,X,I,X,X,X\nD,X,X,X,X,X,D,X,X\nO,I,X,X,X,I,X,X,X\nW,X,A,X,A,X,X,X,X\nN,X,G,G,X,X,X,X,X\nX,Z,Z,X,Y,X,X,X,X",
+    "directions": "udlrwxyz",
+    "expected_output_content": "UP,1\nDOWN,1\nLEFT,1\nRIGHT,1\nDIAGW,1\nDIAGX,1\nDIAGY,1\nDIAGZ,1"
+  },
+  {
+    "test_name": "SameCell_Simple_2Dir",
+    "wordlist_content": "RAY",
+    "matrix_content": "a,b,c,d,e,f,g,h\ni,j,k,l,m,n,o,p\nq,r,s,t,u,v,w,x\ny,z,A,R,A,Y,E,F\nG,H,I,A,K,L,M,N\nO,P,Q,Y,S,T,U,V\nW,X,Y,Z,a,b,c,d\ne,f,g,h,i,j,k,l",
+    "directions": "dr",
+    "expected_output_content": "RAY,2"
+  },
+  {
+    "test_name": "SameCell_Medium_4Dir",
+    "wordlist_content": "STAR",
+    "matrix_content": "a,b,c,R,e,f,g,h\ni,j,k,A,m,n,o,p\nq,r,s,T,u,v,w,x\nR,A,T,S,T,A,R,F\nG,H,I,T,K,L,M,N\nO,P,Q,A,S,T,U,V\nW,X,Y,R,a,b,c,d\ne,f,g,h,i,j,k,l",
+    "directions": "udlr",
+    "expected_output_content": "STAR,4"
+  },
+  {
+    "test_name": "SameCell_Complex_MultiWord",
+    "wordlist_content": "WORD\nWAY",
+    "matrix_content": "X,X,X,X,X,X,X,X,X,X\nX,X,X,X,D,X,X,X,X,X\nX,X,Y,X,R,X,X,X,X,X\nX,X,X,A,O,X,X,X,X,X\nX,X,Y,A,W,O,R,D,X,X\nX,X,X,O,A,O,X,X,X,X\nX,X,R,X,Y,X,R,X,X,X\nX,D,X,X,X,X,X,D,X,X",
+    "directions": "udlrwxyz",
+    "expected_output_content": "WORD,4\nWAY,3"
+  },
+  {
+    "test_name": "HighVolume_Medium_8x8",
+    "wordlist_content": "YES",
+    "matrix_content": "Y,E,S,a,b,c,Y,d\nY,E,S,e,f,g,E,h\nY,E,S,i,j,k,S,l\nY,E,S,m,n,o,p,Y\nY,E,S,q,r,s,t,E\nu,v,w,x,y,z,A,S\nB,Y,C,Y,E,S,F,G\nH,E,I,J,K,L,M,N\nO,S,P,Q,R,S,T,U",
+    "directions": "rdy",
+    "expected_output_content": "YES,12"
+  },
+  {
+    "test_name": "HighVolume_Large_10x10",
+    "wordlist_content": "LOOP",
+    "matrix_content": "L,O,O,P,a,L,O,O,P,b\nL,O,O,P,c,L,O,O,P,d\nL,O,O,P,e,L,O,O,P,f\nL,O,O,P,g,L,O,O,P,h\nL,i,j,L,k,l,m,n,o,x\nO,p,q,O,r,s,t,u,v,x\nO,w,x,O,y,z,A,B,C,x\nP,D,E,P,F,G,H,I,J,x\nK,L,M,N,O,P,Q,R,S,x\nT,U,V,P,O,O,L,W,X,x",
+    "directions": "rdyzl",
+    "expected_output_content": "LOOP,13"
+  },
+  {
+    "test_name": "Shape_Tall_10x5",
+    "wordlist_content": "TALL\nSTACK",
+    "matrix_content": "a,b,c,d,e\nf,S,g,h,i\nj,k,T,l,m\nn,o,A,p,q\nS,s,C,t,u\nT,T,K,x,y\nA,A,A,C,D\nL,F,G,C,I\nL,P,Q,R,K",
+    "directions": "dy",
+    "expected_output_content": "TALL,1\nSTACK,1"
+  },
+  {
+    "test_name": "Shape_Extreme_12x2",
+    "wordlist_content": "DOWN",
+    "matrix_content": "a,D\nb,O\nc,W\nd,N\ne,f\ng,h\ni,j\nk,l\nm,n\no,p\nq,r\ns,t",
+    "directions": "d",
+    "expected_output_content": "DOWN,1"
+  },
+  {
+    "test_name": "Shape_Wide_5x10",
+    "wordlist_content": "WIDE\nLINE",
+    "matrix_content": "a,b,c,d,e,f,g,h,i,j\nk,W,I,D,E,l,m,n,o,p\nq,r,s,t,u,v,w,x,y,z\nA,B,C,L,I,N,E,D,E,F\nG,H,I,J,K,L,M,N,O,P",
+    "directions": "r",
+    "expected_output_content": "WIDE,1\nLINE,1"
+  },
+  {
+    "test_name": "Shape_Extreme_2x12",
+    "wordlist_content": "ACROSS",
+    "matrix_content": "a,b,A,C,R,O,S,S,c,d,e,f\ng,h,i,j,k,l,m,n,o,p,q,r",
+    "directions": "r",
+    "expected_output_content": "ACROSS,1"
+  },
+  {
+    "test_name": "Partial_FindsShorter",
+    "wordlist_content": "HELL",
+    "matrix_content": "H,E,L,L,O,a,b,c\nd,e,f,g,h,i,j,k\nl,m,n,o,p,q,r,s\nt,u,v,w,x,y,z,A\nB,C,D,E,F,G,H,I\nJ,K,L,M,N,O,P,Q\nR,S,T,U,V,W,X,Y\nZ,a,b,c,d,e,f,g",
+    "directions": "r",
+    "expected_output_content": "HELL,1"
+  },
+  {
+    "test_name": "Partial_NoFindLonger",
+    "wordlist_content": "HELLO",
+    "matrix_content": "H,E,L,L,x,a,b,c\nd,e,f,g,h,i,j,k\nl,m,n,o,p,q,r,s\nt,u,v,w,x,y,z,A\nB,C,D,E,F,G,H,I\nJ,K,L,M,N,O,P,Q\nR,S,T,U,V,W,X,Y\nZ,a,b,c,d,e,f,g",
+    "directions": "r",
+    "expected_output_content": ""
+  },
+  {
+    "test_name": "Partial_Complex_AllDir",
+    "wordlist_content": "WOR\nTESTINGS",
+    "matrix_content": "a,b,c,W,e,f,g,h,i,j\nk,l,m,O,o,p,q,r,s,t\nu,v,w,R,y,z,A,B,C,D\nE,F,G,D,I,J,K,L,M,N\nO,P,Q,R,S,T,U,V,W,X\nY,Z,a,b,c,d,e,f,g,h\ni,j,k,l,m,n,o,p,q,r\ns,t,u,T,E,S,T,I,N,G\nv,w,x,y,z,A,B,C,D,E\nF,G,H,I,J,K,L,M,N,O",
+    "directions": "udlr",
+    "expected_output_content": "WOR,1"
+  },
+  {
+    "test_name": "LongWord_CornerStart",
+    "wordlist_content": "AMBIDEXTROUS",
+    "matrix_content": "A,a,b,c,d,e,f,g,h,i,j,k\nl,M,m,n,o,p,q,r,s,t,u,v\nw,x,B,y,z,A,B,C,D,E,F,G\nH,I,J,I,L,M,N,O,P,Q,R,S\nT,U,V,W,D,X,Y,Z,a,b,c,d\ne,f,g,h,i,E,j,k,l,m,n,o\np,q,r,s,t,u,X,v,w,x,y,z\nA,B,C,D,E,F,G,T,H,I,J,K\nL,M,N,O,P,Q,R,S,R,T,U,V\nW,X,Y,Z,a,b,c,d,e,O,f,g\nh,i,j,k,l,m,n,o,p,q,U,r\ns,t,u,v,w,x,y,z,A,B,C,S",
+    "directions": "y",
+    "expected_output_content": "AMBIDEXTROUS,1"
+  },
+  {
+    "test_name": "LongWord_CornerToCorner_1",
+    "wordlist_content": "FLUORIDE",
+    "matrix_content": "F,X,X,X,X,X,X,F\nX,L,X,X,X,X,L,X\nX,X,U,X,X,U,X,X\nX,X,X,O,O,X,X,X\nX,X,X,R,R,X,X,X\nX,X,I,X,X,I,X,X\nX,D,X,X,X,X,D,X\nE,X,X,X,X,X,X,E",
+    "directions": "yz",
+    "expected_output_content": "FLUORIDE,2"
+  },
+  {
+    "test_name": "LongWord_CornerToCorner_2",
+    "wordlist_content": "DIAGONALLY",
+    "matrix_content": "D,a,b,c,d,e,f,g,h,i\nj,I,k,l,m,n,o,p,q,r\ns,t,A,u,v,w,x,y,z,A\nB,C,D,G,E,F,G,H,I,J\nK,L,M,N,O,O,P,Q,R,S\nT,U,V,W,X,N,Y,Z,a,b\nc,d,e,f,g,h,A,i,j,k\nl,m,n,o,p,q,r,L,s,t\nu,v,w,x,y,z,a,b,L,c\nd,e,f,g,h,i,j,k,l,Y",
+    "directions": "y",
+    "expected_output_content": "DIAGONALLY,1"
+  },
+  {
+    "test_name": "LongWord_OutOfBounds_RD",
+    "wordlist_content": "Derivatives",
+    "matrix_content": "D,e,r,i,v,a,t,i,v,e\ne,a,b,c,d,e,f,g,h,i\nr,j,k,l,m,n,o,p,q,r\ni,s,t,u,v,w,x,y,z,A\nv,B,C,D,E,F,G,H,I,J\na,K,L,M,N,O,P,Q,R,S\nt,T,U,V,W,X,Y,Z,a,b\ni,c,d,e,f,g,h,i,j,k\nv,l,m,n,o,p,q,r,s,t\ne,u,v,w,x,y,z,A,B,C",
+    "directions": "rd",
+    "expected_output_content": ""
+  },
+  {
+    "test_name": "LongWord_OutOfBounds_Diagonal",
+    "wordlist_content": "Derivatives",
+    "matrix_content": "D,a,b,c,d,e,f,g,h,i\nj,e,k,l,m,n,o,p,q,r\ns,t,r,u,v,w,x,y,z,A\nB,C,D,i,E,F,G,H,I,J\nK,L,M,N,v,O,P,Q,R,S\nT,U,V,W,X,a,Y,Z,a,b\nc,d,e,f,g,h,t,i,j,k\nl,m,n,o,p,q,r,i,s,t\nu,v,w,x,y,z,a,b,v,c\nd,e,f,g,h,i,j,k,l,e",
+    "directions": "y",
+    "expected_output_content": ""
+  }
+]
